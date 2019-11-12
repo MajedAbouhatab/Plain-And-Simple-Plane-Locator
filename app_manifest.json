@@ -1,0 +1,14 @@
+{
+  "SchemaVersion": 1,
+  "Name": "PlaneLocator",
+  "ComponentId": "819255ff-8640-41fd-aea7-f85d34c491d5",
+  "EntryPoint": "/bin/app",
+  "CmdArgs": [ "0ne00086B54" ],
+  "Capabilities": {
+    "AllowedConnections": [ "global.azure-devices-provisioning.net", "iotc-90cc9dc9-7f1c-48c9-93f8-69539065b017.azure-devices.net" ],
+    "Gpio": [ "$MT3620_GPIO10" ],
+    "Uart": [ "$MT3620_ISU0_UART" ],
+    "DeviceAuthentication": "b3781ecb-c232-41b8-a985-d6616dbbc7f5"
+  },
+  "ApplicationType": "Default"
+}
