@@ -4,7 +4,7 @@ void setup() {
   Serial2.begin(115200);
   sleep(3);
   Gnss.begin();
-  Gnss.setInterval(10);
+  Gnss.setInterval(20);
   Gnss.select(GPS);
   Gnss.start(COLD_START);
 }
@@ -14,6 +14,8 @@ void loop()
   {
     SpNavData NavData;
     Gnss.getNavData(&NavData);
-    if (NavData.posDataExist != 0) Serial2.print("{ location: { lon:" + String(NavData.longitude, 5) + ", lat:" + String(NavData.latitude, 5) + " } }");
+    String AllText = "heartbeat:" + String(NavData.numSatellites);
+    if (NavData.posDataExist != 0) AllText = "location: { lon:" + String(NavData.longitude, 5) + ", lat:" + String(NavData.latitude, 5) + " }, " + AllText;
+    Serial2.print("{ " + AllText +  " }");
   }
 }
